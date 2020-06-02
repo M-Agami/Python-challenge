@@ -17,18 +17,18 @@ with open(input_file, 'r', newline= '',encoding="utf-8") as csvtext:
     header = next(csvreader)       #this will skip the headers in the first row
     row = next(csvreader)       #1st row will be after header
     #declare variables used to store data
-total_months = []
-net_total = []
-monthly_change = []
-greatest_inc = 0
-greatest_dec = 0
+    total_months = []
+    net_total = int()
+    monthly_change = []
+    greatest_inc = 0
+    greatest_dec = 0
     #start loop
     for row in csvreader:
         total_months.append(row[0])
-        net_total.append(row[2])
+        net_total.append(row[1])
     
     for i in range(len(net_total)-1):
-        monthly_change.append(net_total[i+1]-net_total[i])
+        monthly_change.append(net_total[i+1]- net_total[i])
     
 greatest_inc = max(monthly_change)
 greatest_dec = min(monthly_change)
@@ -48,7 +48,7 @@ Analyzed_budget_list = {"Total Months": len(total_months)
                             }
 print(Analyzed_budget_list)
 #export file
-output_file = Path("python-challenge", "PyBank", "Analyzed_budget_list.txt")
+output_file = Path("python-challenge", "PyBank", "Analysis","Analyzed_budget_list.txt")
 
 with open(output_file, "w") as New_budget_list:
     New_budget_list.write("Analyzed Budget List""\n")
