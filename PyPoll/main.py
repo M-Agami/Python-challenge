@@ -2,11 +2,11 @@ file = '/Users/Maury/Documents/GitHub/Python-challenge/PyPoll/Resources/election
 
 import os
 import csv
-import collections
+import pathlib
 
-with open(file, 'r', newline='') as csvtext:
+input_file = Path("..","Resources","election_data.csv")
+with open(input_file, 'r', newline='') as csvtext:
     csvtext= csv.reader(csvtext, delimiter = ',')
-    print(csvtext)
     election_list = csvtext.read()
     
 #declare variables to store data
